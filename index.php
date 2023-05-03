@@ -1,7 +1,7 @@
 <?php
 
 
-// $password = readline("Inserici una password: ");
+
 
 // NUMERO CARATTERI //
 
@@ -12,7 +12,6 @@ function checkLength($password){
     echo "La password deve essere lunga 8 o più caratteri \n";
     return false;
 }
-// checkLenght($password);
 // NUMERI NELLA PSW //
 
 function checkNumber($password){
@@ -24,7 +23,6 @@ function checkNumber($password){
     echo "E' necessario almeno un numero \n";
     return false;
 }
-// checkNumber($password);
 // MAIUSCOLE //
 
 function checkUpper($password){
@@ -36,8 +34,6 @@ function checkUpper($password){
     echo "E' necessario almeno un carettere in maiuscolo \n";
     return false;
 }
-// checkUpper($password);
-
 // CARATTERI SPECIALI //
 
 function checkSpecial($password){
@@ -51,7 +47,6 @@ function checkSpecial($password){
     echo "E' necessario almeno un carattere speciale \n";
     return false;
 }
-// checkSpecial($password);
 
 function checkPassword (){
 
@@ -66,7 +61,22 @@ function checkPassword (){
     }
 }
 $passwordValid = false;
+$counter = 0;
+
 
 do{
     $passwordValid = checkPassword();
-} while ($passwordValid == false);
+    $tentativi = 2 - $counter;
+        if ($passwordValid == false) {
+        $counter++;
+    }
+        if ($counter == 1) {
+        echo "Ti rimangono $tentativi tentativi \n"; 
+    }
+        else if ($counter == 2) {
+        echo "Ti rimane $tentativi tentativo \n"; 
+    }
+        else if ($counter == 3) {
+        echo "Hai superato i tentativi massimi \n"; 
+    }
+} while ($passwordValid == false && $counter < 3);
