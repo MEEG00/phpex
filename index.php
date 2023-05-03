@@ -61,6 +61,7 @@ function checkPassword (){
     }
 }
 $passwordValid = false;
+
 $counter = 0;
 
 
@@ -70,13 +71,13 @@ do{
         if ($passwordValid == false) {
         $counter++;
     }
-        if ($counter == 1) {
+        if ($counter == 1 && $passwordValid == false) {
         echo "Ti rimangono $tentativi tentativi \n"; 
     }
-        else if ($counter == 2) {
+        else if ($counter == 2 && $passwordValid == false) {
         echo "Ti rimane $tentativi tentativo \n"; 
     }
-        else if ($counter == 3) {
+        else if ($counter == 3 && $passwordValid == false) {
         echo "Hai superato i tentativi massimi \n"; 
     }
 } while ($passwordValid == false && $counter < 3);
